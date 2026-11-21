@@ -1,0 +1,15 @@
+﻿Books.csv
+songdata.csv
+Ratings.csv
+Precily_Text_Similarity.csv
+Users.csv
+
+.venv/
+__pycache__/
+Books.csv
+songdata.csv
+Ratings.csv
+Precily_Text_Similarity.csv
+Users.csv
+
+.env

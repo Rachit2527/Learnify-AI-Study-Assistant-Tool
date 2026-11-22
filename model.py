@@ -4,23 +4,18 @@ import re
 import json
 import sqlite3
 from pathlib import Path
-
 import numpy as np
 import pandas as pd
 import streamlit as st
 import faiss
-
 from dotenv import load_dotenv
 from huggingface_hub import InferenceClient
-
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.metrics.pairwise import cosine_similarity
 from sklearn.pipeline import Pipeline
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.neighbors import NearestNeighbors
-
 from pypdf import PdfReader
-
 
 # ============================================================
 # 1. CONFIGURATION
@@ -104,7 +99,7 @@ def ask_llm(
 
 
 # ============================================================
-# 3. HOSTED EMBEDDINGS - NO LOCAL PYTORCH
+# 3. HOSTED EMBEDDINGS
 # ============================================================
 
 def get_single_embedding(text):
@@ -127,7 +122,6 @@ def get_single_embedding(text):
     if embedding.ndim == 3:
         embedding = embedding[0]
 
-    # Handle token-level embeddings [sequence_length, dimensions].
     # Mean pooling converts token vectors into one document vector.
     if embedding.ndim == 2:
         embedding = embedding.mean(axis=0)
@@ -691,7 +685,6 @@ Do not exceed the available daily hours.
         )
     )
 
-
 # ============================================================
 # 13. AI QUIZ GENERATOR
 # ============================================================
@@ -808,6 +801,11 @@ st.sidebar.caption("Your intelligent learning workspace")
 pages = [
 
     "🏠 Dashboard",
+
+    "📖 Book Recommender",
+    "🎯 Resume Classifier",
+    "📌 Resume-JD Matcher",
+    "🔍 Text Similarity",
     "📚 PDF RAG Chatbot",
     "🗓️ Study Planner",
     "🧠 Quiz Generator",
@@ -815,12 +813,6 @@ pages = [
     "👨‍🏫 Concept Tutor",
     "📝 AI Notes",
     "📄 Summarizer",
-
-    "📖 Book Recommender",
-    "🎯 Resume Classifier",
-    "📌 Resume-JD Matcher",
-    "🔍 Text Similarity",
-
     "✅ Task Manager",
     "📊 Learning Analytics"
 

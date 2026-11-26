@@ -801,11 +801,10 @@ st.sidebar.caption("Your intelligent learning workspace")
 pages = [
 
     "🏠 Dashboard",
-
-    "📖 Book Recommender",
     "🎯 Resume Classifier",
     "📌 Resume-JD Matcher",
     "🔍 Text Similarity",
+    "📖 Book Recommender",
     "📚 PDF RAG Chatbot",
     "🗓️ Study Planner",
     "🧠 Quiz Generator",
